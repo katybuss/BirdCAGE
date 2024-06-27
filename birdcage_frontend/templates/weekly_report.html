@@ -77,7 +77,7 @@ Weekly Report
         const [year, week] = weekString.split('-W');
 
         // Calculate the start of the week (Monday)
-        const start = new Date(year, 0, (week) * 7 + 1);
+        const start = new Date(year, 0, 1 + (week - 1) * 7);
         start.setDate(start.getDate() - (start.getDay() + 6) % 7);
 
         // Calculate the end of the week (Sunday)
@@ -184,7 +184,7 @@ ${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(day => {
 
     function getMondayOfWeek(weekString) {
         const [year, week] = weekString.split('-W');
-        const date = new Date(year, 0, (week) * 7 + 1);
+        const date = new Date(year, 0, 1 + (week - 1) * 7);
         date.setDate(date.getDate() - (date.getDay() + 6) % 7);
         return date;
     }
